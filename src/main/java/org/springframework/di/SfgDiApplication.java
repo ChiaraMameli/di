@@ -6,6 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.di.controllers.MainController;
 import org.springframework.di.controllers.PropertyInjectedController;
+import org.springframework.di.controllers.SetterInjectedController;
 
 @SpringBootApplication
 public class SfgDiApplication {
@@ -20,11 +21,15 @@ public class SfgDiApplication {
 
 		System.out.println("----------- property");
 		PropertyInjectedController propertyInjectedController =(PropertyInjectedController) stx.getBean("propertyInjectedController");
-		String propertyHello = propertyInjectedController.printGreetings();
-		System.out.println(propertyHello);
+		String propertyGreetings = propertyInjectedController.printGreetings();
+		System.out.println(propertyGreetings);
 
+		System.out.println("----------- setter");
+		SetterInjectedController setterInjectedController =(SetterInjectedController) stx.getBean("setterInjectedController");
+		String setterGreetings = setterInjectedController.getGreetings();
+		System.out.println(setterGreetings);
 
-
+		System.out.println("----------- constructor");
 	}
 
 }
