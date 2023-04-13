@@ -14,28 +14,23 @@ public class SfgDiApplication {
 
 		//non ho bisogno di inizializzare l'oggetto grazie alla di
 		MainController mainController = (MainController) stx.getBean("mainController");
-		String sayHello = mainController.sayHello();
-		System.out.println(sayHello);
+		System.out.println(mainController.sayHello());
 
 		System.out.println("----------- property");
 		PropertyInjectedController propertyInjectedController =(PropertyInjectedController) stx.getBean("propertyInjectedController");
-		String propertyGreetings = propertyInjectedController.getGreetings();
-		System.out.println(propertyGreetings);
+		System.out.println(propertyInjectedController.getGreetings());
 
 		System.out.println("----------- setter");
 		SetterInjectedController setterInjectedController =(SetterInjectedController) stx.getBean("setterInjectedController");
-		String setterGreetings = setterInjectedController.getGreetings();
-		System.out.println(setterGreetings);
+		System.out.println(setterInjectedController.getGreetings());
 
 		System.out.println("----------- constructor");
 		ConstructorInjectedController constructorInjectedController = (ConstructorInjectedController) stx.getBean("constructorInjectedController");
-		String constructorGreetings = constructorInjectedController.getGreetings();
-		System.out.println(constructorGreetings);
+		System.out.println(constructorInjectedController.getGreetings());
 
 		System.out.println("----------- profile");
 		I18nController i18nController = (I18nController) stx.getBean("i18nController");
-		String profileGreetings = i18nController.getGreetings();
-		System.out.println(profileGreetings);
+		System.out.println(i18nController.getGreetings());
 	}
 
 }
