@@ -4,6 +4,7 @@ import org.apache.catalina.core.ApplicationContext;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.di.controllers.ConstructorInjectedController;
 import org.springframework.di.controllers.MainController;
 import org.springframework.di.controllers.PropertyInjectedController;
 import org.springframework.di.controllers.SetterInjectedController;
@@ -21,7 +22,7 @@ public class SfgDiApplication {
 
 		System.out.println("----------- property");
 		PropertyInjectedController propertyInjectedController =(PropertyInjectedController) stx.getBean("propertyInjectedController");
-		String propertyGreetings = propertyInjectedController.printGreetings();
+		String propertyGreetings = propertyInjectedController.getGreetings();
 		System.out.println(propertyGreetings);
 
 		System.out.println("----------- setter");
@@ -30,6 +31,9 @@ public class SfgDiApplication {
 		System.out.println(setterGreetings);
 
 		System.out.println("----------- constructor");
+		ConstructorInjectedController constructorInjectedController = (ConstructorInjectedController) stx.getBean("constructorInjectedController");
+		String constructorGreetings = constructorInjectedController.getGreetings();
+		System.out.println(constructorGreetings);
 	}
 
 }
