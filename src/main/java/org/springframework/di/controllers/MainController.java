@@ -1,12 +1,16 @@
 package org.springframework.di.controllers;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.di.services.GreetingService;
 import org.springframework.stereotype.Controller;
 
 @Controller
 public class MainController {
 
+    @Autowired
+    private GreetingService greetingService;
+
     public String sayHello(){
-            System.out.println("Hello, World!");
-        return "Hello!";
+        return greetingService.greetings();
     }
 }
