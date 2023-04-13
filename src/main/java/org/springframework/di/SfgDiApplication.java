@@ -4,10 +4,7 @@ import org.apache.catalina.core.ApplicationContext;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
-import org.springframework.di.controllers.ConstructorInjectedController;
-import org.springframework.di.controllers.MainController;
-import org.springframework.di.controllers.PropertyInjectedController;
-import org.springframework.di.controllers.SetterInjectedController;
+import org.springframework.di.controllers.*;
 
 @SpringBootApplication
 public class SfgDiApplication {
@@ -34,6 +31,11 @@ public class SfgDiApplication {
 		ConstructorInjectedController constructorInjectedController = (ConstructorInjectedController) stx.getBean("constructorInjectedController");
 		String constructorGreetings = constructorInjectedController.getGreetings();
 		System.out.println(constructorGreetings);
+
+		System.out.println("----------- profile");
+		I18nController i18nController = (I18nController) stx.getBean("i18nController");
+		String profileGreetings = i18nController.getGreetings();
+		System.out.println(profileGreetings);
 	}
 
 }
